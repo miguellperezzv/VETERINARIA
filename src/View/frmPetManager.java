@@ -6,10 +6,13 @@
 package View;
 
 import Clases.clsCat;
+import Clases.clsDoctor;
 import Clases.clsDog;
+import Clases.clsVeterinary;
 import controller.ctlPet;
 import java.util.LinkedList;
 import javax.swing.DefaultListModel;
+import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 
 /**
@@ -18,7 +21,7 @@ import javax.swing.JOptionPane;
  */
 public class frmPetManager extends javax.swing.JFrame {
     
-    LinkedList<clsDog> petlist = new LinkedList<>();
+    
     ctlPet ctlPet = new ctlPet();
    
     /**
@@ -26,6 +29,11 @@ public class frmPetManager extends javax.swing.JFrame {
      */
     public frmPetManager() {
         initComponents();
+        
+        
+        
+        
+        
     }
 
     /**
@@ -37,6 +45,10 @@ public class frmPetManager extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        btnCrearCat1 = new javax.swing.JButton();
+        btnBuscarCat1 = new javax.swing.JButton();
+        btnEditarCat1 = new javax.swing.JButton();
+        btnEliminarCat1 = new javax.swing.JButton();
         lblPet = new javax.swing.JLabel();
         jTabbedPane3 = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
@@ -78,12 +90,69 @@ public class frmPetManager extends javax.swing.JFrame {
         btnEliminarCat = new javax.swing.JButton();
         cmbHealthCat = new javax.swing.JComboBox<>();
         cmbBreedCat = new javax.swing.JComboBox<>();
+        jPanel5 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        txtDoctor = new javax.swing.JTextField();
+        jLabel14 = new javax.swing.JLabel();
+        txtLicencia = new javax.swing.JTextField();
+        btnCrearDoctor = new javax.swing.JButton();
+        btnBuscarDoctor = new javax.swing.JButton();
+        btnEditarDoctor = new javax.swing.JButton();
+        btnEliminarDoctor = new javax.swing.JButton();
+        jPanel6 = new javax.swing.JPanel();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
+        txtNombreVet = new javax.swing.JTextField();
+        txtTelefonoVet = new javax.swing.JTextField();
+        txtDirVet = new javax.swing.JTextField();
+        cmbDoctor = new javax.swing.JComboBox<>();
+        btnCrearVet = new javax.swing.JButton();
+        btnBuscarVet = new javax.swing.JButton();
+        btnEditarVet = new javax.swing.JButton();
+        btnEliminarVet = new javax.swing.JButton();
+        jLabel19 = new javax.swing.JLabel();
+
+        btnCrearCat1.setText("Crear");
+        btnCrearCat1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCrearCat1ActionPerformed(evt);
+            }
+        });
+
+        btnBuscarCat1.setText("Buscar");
+        btnBuscarCat1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarCat1ActionPerformed(evt);
+            }
+        });
+
+        btnEditarCat1.setText("Editar");
+        btnEditarCat1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditarCat1ActionPerformed(evt);
+            }
+        });
+
+        btnEliminarCat1.setText("Eliminar");
+        btnEliminarCat1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarCat1ActionPerformed(evt);
+            }
+        });
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
 
         lblPet.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblPet.setText("Pet Manager");
+
+        jTabbedPane3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                VeterinaryManagerClicked(evt);
+            }
+        });
 
         petList.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Pet1", "Pet2" };
@@ -103,7 +172,7 @@ public class frmPetManager extends javax.swing.JFrame {
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 296, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 298, Short.MAX_VALUE)
         );
 
         jTabbedPane3.addTab("Pet List", jPanel1);
@@ -415,7 +484,7 @@ public class frmPetManager extends javax.swing.JFrame {
                     .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel4)
                         .addComponent(jLabel7)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 60, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 62, Short.MAX_VALUE)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnCrearCat)
                     .addComponent(btnBuscarCat)
@@ -425,6 +494,185 @@ public class frmPetManager extends javax.swing.JFrame {
         );
 
         jTabbedPane3.addTab("Cat Manager", jPanel3);
+
+        jLabel1.setText("Nombre Doctor");
+
+        jLabel14.setText("Licencia");
+
+        btnCrearDoctor.setText("Crear");
+        btnCrearDoctor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCrearDoctorActionPerformed(evt);
+            }
+        });
+
+        btnBuscarDoctor.setText("Buscar");
+        btnBuscarDoctor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarDoctorActionPerformed(evt);
+            }
+        });
+
+        btnEditarDoctor.setText("Editar");
+        btnEditarDoctor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditarDoctorActionPerformed(evt);
+            }
+        });
+
+        btnEliminarDoctor.setText("Eliminar");
+        btnEliminarDoctor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarDoctorActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGap(83, 83, 83)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel14))
+                .addGap(65, 65, 65)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(txtDoctor)
+                    .addComponent(txtLicencia, javax.swing.GroupLayout.DEFAULT_SIZE, 106, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGap(39, 39, 39)
+                .addComponent(btnCrearDoctor)
+                .addGap(52, 52, 52)
+                .addComponent(btnBuscarDoctor)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 164, Short.MAX_VALUE)
+                .addComponent(btnEditarDoctor)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
+                .addComponent(btnEliminarDoctor)
+                .addContainerGap())
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGap(43, 43, 43)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(txtDoctor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1))
+                .addGap(41, 41, 41)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel14)
+                    .addComponent(txtLicencia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 77, Short.MAX_VALUE)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnCrearDoctor)
+                    .addComponent(btnBuscarDoctor)
+                    .addComponent(btnEditarDoctor)
+                    .addComponent(btnEliminarDoctor))
+                .addGap(74, 74, 74))
+        );
+
+        jTabbedPane3.addTab("Doctor Manager", jPanel5);
+
+        jLabel15.setText("nombre");
+
+        jLabel16.setText("telefono");
+
+        jLabel17.setText("dirección");
+
+        jLabel18.setText("doctor encargado");
+
+        btnCrearVet.setText("Crear");
+        btnCrearVet.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCrearVetActionPerformed(evt);
+            }
+        });
+
+        btnBuscarVet.setText("Buscar");
+        btnBuscarVet.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarVetActionPerformed(evt);
+            }
+        });
+
+        btnEditarVet.setText("Editar");
+        btnEditarVet.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditarVetActionPerformed(evt);
+            }
+        });
+
+        btnEliminarVet.setText("Eliminar");
+        btnEliminarVet.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarVetActionPerformed(evt);
+            }
+        });
+
+        jLabel19.setText("DEBE EXISTIR UN DOCTOR PRIMERO");
+
+        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
+        jPanel6.setLayout(jPanel6Layout);
+        jPanel6Layout.setHorizontalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addGap(57, 57, 57)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel15)
+                    .addComponent(jLabel16)
+                    .addComponent(jLabel17)
+                    .addComponent(jLabel18))
+                .addGap(30, 30, 30)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(txtNombreVet)
+                    .addComponent(txtTelefonoVet)
+                    .addComponent(txtDirVet)
+                    .addComponent(cmbDoctor, 0, 145, Short.MAX_VALUE))
+                .addGap(32, 32, 32)
+                .addComponent(jLabel19)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(btnCrearVet)
+                .addGap(52, 52, 52)
+                .addComponent(btnBuscarVet)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 178, Short.MAX_VALUE)
+                .addComponent(btnEditarVet)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 59, Short.MAX_VALUE)
+                .addComponent(btnEliminarVet)
+                .addContainerGap())
+        );
+        jPanel6Layout.setVerticalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel15)
+                    .addComponent(txtNombreVet, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(35, 35, 35)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel16)
+                    .addComponent(txtTelefonoVet, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(31, 31, 31)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel17)
+                    .addComponent(txtDirVet, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(26, 26, 26)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel18)
+                    .addComponent(cmbDoctor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel19))
+                .addGap(32, 32, 32)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnCrearVet)
+                    .addComponent(btnBuscarVet)
+                    .addComponent(btnEditarVet)
+                    .addComponent(btnEliminarVet))
+                .addContainerGap(39, Short.MAX_VALUE))
+        );
+
+        jTabbedPane3.addTab("Veterinary Manager", jPanel6);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -691,6 +939,187 @@ public class frmPetManager extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnEliminarCatActionPerformed
 
+    private void btnCrearCat1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearCat1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnCrearCat1ActionPerformed
+
+    private void btnBuscarCat1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarCat1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnBuscarCat1ActionPerformed
+
+    private void btnEditarCat1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarCat1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnEditarCat1ActionPerformed
+
+    private void btnEliminarCat1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarCat1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnEliminarCat1ActionPerformed
+
+    private void btnCrearDoctorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearDoctorActionPerformed
+        // TODO add your handling code here:
+        try{
+            String code = txtDoctor.getText();
+            String licencia = txtLicencia.getText();
+            if(code.equals("") || licencia.equals("")){
+            JOptionPane.showMessageDialog(this, "Empty fields! ");
+        }
+        else{
+        clsDoctor doctor = new clsDoctor(code, licencia);
+        ctlPet.createDoctor(doctor);
+        
+        JOptionPane.showMessageDialog(this, "Doctor agregado! ");
+        this.clearDocFields();
+        FillJList();
+        }
+        }catch(Exception e){
+            
+        }
+    }//GEN-LAST:event_btnCrearDoctorActionPerformed
+
+    private void btnBuscarDoctorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarDoctorActionPerformed
+        // TODO add your handling code here:
+        String codeDoc = txtLicencia.getText();
+        clsDoctor doc = ctlPet.searchDoc(codeDoc);
+        if (doc==null){
+            JOptionPane.showMessageDialog(null, "Not found! ");
+        }else{
+            txtDoctor.setText(doc.getName());   
+        }
+    }//GEN-LAST:event_btnBuscarDoctorActionPerformed
+
+    private void btnEditarDoctorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarDoctorActionPerformed
+        // TODO add your handling code here:
+        String licencia = txtLicencia.getText();
+        String nameDoc = txtDoctor.getText();
+        clsDoctor doc = new clsDoctor(nameDoc, licencia);
+        boolean found = ctlPet.editDoctor(doc);
+        if(found){
+            JOptionPane.showMessageDialog(null, "Record updated succesfully! ");
+            this.clearDocFields();
+            this.FillJList();
+        }else{
+            
+        }
+
+        if (!found){
+            JOptionPane.showMessageDialog(null, "Not found, not edited! ");
+        }
+    }//GEN-LAST:event_btnEditarDoctorActionPerformed
+
+    private void btnEliminarDoctorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarDoctorActionPerformed
+        // TODO add your handling code here:
+        String codeDoc = txtLicencia.getText();
+        boolean found = false;
+        clsDoctor doc = ctlPet.searchDoc(codeDoc);
+        if(doc!=null){
+            found = ctlPet.deleteDoctor(doc);
+            if (found){
+                JOptionPane.showMessageDialog(null, "Record DELETED succesfully! ");
+                this.clearDocFields();
+                this.FillJList();
+            }
+            else{
+                JOptionPane.showMessageDialog(null, "Not found, not deleted! ");
+            }
+            
+        }else{
+            
+        }
+    }//GEN-LAST:event_btnEliminarDoctorActionPerformed
+
+    private void btnCrearVetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearVetActionPerformed
+        // TODO add your handling code here:
+        try{
+            String nombre = txtNombreVet.getText();
+            String phone = txtTelefonoVet.getText();
+            String address = txtDirVet.getText();
+            clsDoctor doctor = ctlPet.searchDoc((String) cmbDoctor.getSelectedItem());
+            
+            if(nombre.equals("") || phone.equals("")|| address.equals("")){
+            JOptionPane.showMessageDialog(this, "Empty fields! ");
+        }
+        else{
+                clsVeterinary vet = new clsVeterinary(nombre, phone, address, doctor);
+                ctlPet.createVet(vet);
+        
+        JOptionPane.showMessageDialog(this, "Veterinaria agregada! ");
+        this.clearVetFields();
+        FillJList();
+        }
+        }catch(Exception e){
+            
+        }
+    }//GEN-LAST:event_btnCrearVetActionPerformed
+
+    private void btnBuscarVetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarVetActionPerformed
+        // TODO add your handling code here:
+        
+        String name = txtNombreVet.getText();
+        clsVeterinary vet = ctlPet.searchVet(name);
+        if (vet==null){
+            JOptionPane.showMessageDialog(null, "Not found! ");
+        }else{
+            txtDirVet.setText(vet.getAddress());
+            txtTelefonoVet.setText(vet.getPhone());
+            cmbDoctor.setSelectedItem(vet.getDoctor().getLicense());
+        }
+    }//GEN-LAST:event_btnBuscarVetActionPerformed
+
+    private void btnEditarVetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarVetActionPerformed
+        // TODO add your handling code here:
+            String nombre = txtNombreVet.getText();
+            String phone = txtTelefonoVet.getText();
+            String address = txtDirVet.getText();
+            clsDoctor doctor = ctlPet.searchDoc((String) cmbDoctor.getSelectedItem());
+            
+            if(nombre.equals("") || phone.equals("")|| address.equals("")){
+                JOptionPane.showMessageDialog(this, "Empty fields! ");
+            }
+        clsVeterinary vet = new clsVeterinary(nombre, phone, address, doctor);
+        boolean found = ctlPet.editVet(vet);
+        if(found){
+            JOptionPane.showMessageDialog(null, "Record updated succesfully! ");
+            this.clearVetFields();
+            this.FillJList();
+        }else{
+            
+        }
+
+        if (!found){
+            JOptionPane.showMessageDialog(null, "Not found, not edited! ");
+        }
+    }//GEN-LAST:event_btnEditarVetActionPerformed
+
+    private void btnEliminarVetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarVetActionPerformed
+        // TODO add your handling code here:
+        String name = txtNombreVet.getText();
+        boolean found = false;
+        clsVeterinary vet = ctlPet.searchVet(name);
+        if(vet!=null){
+            found = ctlPet.deleteVet(vet);
+            if (found){
+                JOptionPane.showMessageDialog(null, "Record DELETED succesfully! ");
+                this.clearVetFields();
+                this.FillJList();
+            }
+            else{
+                JOptionPane.showMessageDialog(null, "Not found, not deleted! ");
+            }
+            
+        }else{
+            
+        }
+    }//GEN-LAST:event_btnEliminarVetActionPerformed
+
+    private void VeterinaryManagerClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_VeterinaryManagerClicked
+        // TODO add your handling code here:
+        cmbDoctor.removeAllItems();
+        for (clsDoctor doc: ctlPet.getDocList()){
+            this.cmbDoctor.addItem(doc.getLicense());
+        }
+        
+    }//GEN-LAST:event_VeterinaryManagerClicked
+
     
     private void FillJList(){
         DefaultListModel model = new DefaultListModel();
@@ -703,6 +1132,18 @@ public class frmPetManager extends javax.swing.JFrame {
         
         for (clsCat cat: ctlPet.getCatList("Gato")){
             String data  = cat.getName() + " "+ cat.getBreed() + " (GATO)";
+            model.add(index, data);
+            index++;
+        }
+        
+        for (clsDoctor doc: ctlPet.getDocList()){
+            String data  = doc.getName() + " "+ doc.getLicense() + " (DOCTOR)";
+            model.add(index, data);
+            index++;
+        }
+        
+        for (clsVeterinary v: ctlPet.getVetList()){
+            String data  = v.getName() + " "+ v.getPhone()+ " "+ v.getAddress() + " (VETERINARIA)";
             model.add(index, data);
             index++;
         }
@@ -724,6 +1165,17 @@ public class frmPetManager extends javax.swing.JFrame {
         txtCodeCat.setText("");
         txtColorCat.setText("");
         
+    }
+    
+    private void clearDocFields() {
+        txtDoctor.setText("");
+        txtLicencia.setText("");
+    }
+    
+    private void clearVetFields() {
+        txtNombreVet.setText("");
+        txtTelefonoVet.setText("");
+        txtDirVet.setText("");
     }
     /**
      * @param args the command line arguments
@@ -762,22 +1214,42 @@ public class frmPetManager extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBuscarCat;
+    private javax.swing.JButton btnBuscarCat1;
+    private javax.swing.JButton btnBuscarDoctor;
     private javax.swing.JButton btnBuscarDog;
+    private javax.swing.JButton btnBuscarVet;
     private javax.swing.JButton btnCrearCat;
+    private javax.swing.JButton btnCrearCat1;
+    private javax.swing.JButton btnCrearDoctor;
     private javax.swing.JButton btnCrearDog;
+    private javax.swing.JButton btnCrearVet;
     private javax.swing.JButton btnEditarCat;
+    private javax.swing.JButton btnEditarCat1;
+    private javax.swing.JButton btnEditarDoctor;
     private javax.swing.JButton btnEditarDog;
+    private javax.swing.JButton btnEditarVet;
     private javax.swing.JButton btnEliminarCat;
+    private javax.swing.JButton btnEliminarCat1;
+    private javax.swing.JButton btnEliminarDoctor;
     private javax.swing.JButton btnEliminarDog;
+    private javax.swing.JButton btnEliminarVet;
     private javax.swing.JCheckBox checkBoxDog;
     private javax.swing.JComboBox<String> cmbBreedCat;
     private javax.swing.JComboBox<String> cmbBreedDog;
+    private javax.swing.JComboBox<String> cmbDoctor;
     private javax.swing.JComboBox<String> cmbHealthCat;
     private javax.swing.JComboBox<String> cmbHealthDog;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -790,6 +1262,8 @@ public class frmPetManager extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTabbedPane jTabbedPane3;
     private javax.swing.JLabel lblPet;
@@ -800,7 +1274,14 @@ public class frmPetManager extends javax.swing.JFrame {
     private javax.swing.JTextField txtCodeDog;
     private javax.swing.JTextField txtColorCat;
     private javax.swing.JTextField txtColorDog;
+    private javax.swing.JTextField txtDirVet;
+    private javax.swing.JTextField txtDoctor;
+    private javax.swing.JTextField txtLicencia;
     private javax.swing.JTextField txtNameCat;
     private javax.swing.JTextField txtNameDog;
+    private javax.swing.JTextField txtNombreVet;
+    private javax.swing.JTextField txtTelefonoVet;
     // End of variables declaration//GEN-END:variables
+
+    
 }

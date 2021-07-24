@@ -5,6 +5,7 @@
  */
 package model;
 
+import Clases.clsDoctor;
 import Clases.clsDog;
 import Clases.clsPet;
 import java.util.LinkedList;
@@ -98,6 +99,8 @@ public class modelDog {
         }
         return pet;
     }
+
+    
     
     
 }

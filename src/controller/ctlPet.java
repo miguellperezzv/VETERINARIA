@@ -6,11 +6,15 @@
 package controller;
 
 import Clases.clsCat;
+import Clases.clsDoctor;
 import Clases.clsDog;
 import Clases.clsPet;
+import Clases.clsVeterinary;
 import java.util.LinkedList;
 import model.modelCat;
+import model.modelDoctor;
 import model.modelDog;
+import model.modelVet;
 
 /**
  *
@@ -21,9 +25,14 @@ public class ctlPet {
     
     modelDog modelDog;
     modelCat modelCat;
+    modelDoctor modelDoctor;
+    modelVet modelVet;
+    
     public ctlPet() {
         this.modelDog = new modelDog();
         this.modelCat = new modelCat();
+        this.modelDoctor = new modelDoctor();
+        this.modelVet = new modelVet();
     }
     
     public boolean createPet(clsPet pet){
@@ -87,6 +96,111 @@ public class ctlPet {
         
     }
     
+    public boolean createDoctor(clsDoctor doctor){
+        
+        try{
+            this.modelDoctor.createDoctor(doctor);
+            return true;
+        }catch(Exception e){
+            return false;
+        }
+        
+    }
+    
+    public boolean editDoctor(clsDoctor doctor){
+        
+        try{
+            
+            this.modelDoctor.editDoctor(doctor);
+            
+            return true;
+        }catch(Exception e){
+            return false;
+        }
+        
+    }
+    
+    public boolean deleteDoctor(clsDoctor doctor){
+        
+        try{
+            
+                this.modelDoctor.deleteDoctor(doctor);
+            
+            return true;
+        }catch(Exception e){
+            return false;
+        }
+        
+    }
+    
+    public clsDoctor searchDoc(String code){
+        
+        clsDoctor doc = null;
+        try{
+            
+               doc =  this.modelDoctor.searchDoctor(code);
+            
+            return doc;
+        }catch(Exception e){
+            return doc;
+        }
+        
+    }
+    
+    public boolean createVet(clsVeterinary vet){
+        
+        try{
+            this.modelVet.createVet(vet);
+            return true;
+        }catch(Exception e){
+            return false;
+        }
+        
+    }
+    
+    public boolean editVet(clsVeterinary vet){
+        
+        try{
+            
+            this.modelVet.editVet(vet);
+            
+            return true;
+        }catch(Exception e){
+            return false;
+        }
+        
+    }
+    
+    public boolean deleteVet(clsVeterinary vet){
+        
+        try{
+            
+                this.modelVet.deleteVet(vet);
+            
+            return true;
+        }catch(Exception e){
+            return false;
+        }
+        
+    }
+    
+    public clsVeterinary searchVet(String name){
+        
+        clsVeterinary vet = null;
+        try{
+            
+               vet =  this.modelVet.searchVet(name);
+            
+            return vet;
+        }catch(Exception e){
+            return vet;
+        }
+        
+    }
+    
+    
+    
+    
     public LinkedList<clsDog> getDogList(String type){
         
         try{
@@ -110,4 +224,30 @@ public class ctlPet {
             return null;
         }
     }
+
+    public LinkedList<clsDoctor> getDocList() {
+        try{
+            
+               return modelDoctor.getDoctorlist();
+            
+            
+        }catch(Exception e){
+            return null;
+        }
+    
+    }
+    
+    public LinkedList<clsVeterinary> getVetList() {
+        try{
+            
+               return modelVet.getVetlist();
+            
+            
+        }catch(Exception e){
+            return null;
+        }
+    
+    }
+
+    
 }
