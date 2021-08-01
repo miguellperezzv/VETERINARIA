@@ -12,12 +12,24 @@ package Clases;
 public class clsDoctor {
     
     private String name;
-    private String license;
+    private String phone;
+    private String address;
+    private int doctorId; 
 
-    public clsDoctor(String name, String license) {
+    public clsDoctor(String name, String phone, String address) {
         this.name = name;
-        this.license = license;
+        this.phone = phone;
+        this.address = address;
     }
+    
+    public clsDoctor(int id, String name, String phone, String address) {
+        this.name = name;
+        this.phone = phone;
+        this.address = address;
+        this.doctorId = id;
+    }
+
+    
 
     
     public String getName() {
@@ -28,13 +40,32 @@ public class clsDoctor {
         this.name = name;
     }
 
-    public String getLicense() {
-        return license;
+    public String getPhone() {
+        return phone;
     }
 
-    public void setLicense(String license) {
-        this.license = license;
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public int getDoctorId() {
+        return doctorId;
+    }
+
+    public void setDoctorId(int doctorId) {
+        this.doctorId = doctorId;
+    }
+
+    
+   
     
     
 }

@@ -11,8 +11,19 @@ package Clases;
  */
 public class clsDog extends clsPet{
     
+    int dogId;
+
+   
     private String breed;
     private boolean pedigree;
+
+    public clsDog(String breed, boolean pedigree, String code, String name, int born_year, String color, String health_status) {
+        super(code, name, born_year, color, health_status);
+        
+        this.breed = breed;
+        this.pedigree = pedigree;
+
+    }
 
     public String getBreed() {
         return breed;
@@ -29,12 +40,22 @@ public class clsDog extends clsPet{
     public void setPedigree(boolean pedigree) {
         this.pedigree = pedigree;
     }
+     public int getDogId() {
+        return dogId;
+    }
 
-    public clsDog(String breed, boolean pedigree, String code, String name, int born_year, String color, String health_status) {
+    public void setDogId(int dogId) {
+        this.dogId = dogId;
+    }
+
+    public clsDog(int dogId, String breed, boolean pedigree, String code, String name, int born_year, String color, String health_status) {
         super(code, name, born_year, color, health_status);
+        this.dogId = dogId;
         this.breed = breed;
         this.pedigree = pedigree;
     }
+
+    
     
     public void WalkAround(){
         System.out.println("El perro "+ super.getName()+" está caminando");

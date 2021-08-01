@@ -133,12 +133,12 @@ public class ctlPet {
         
     }
     
-    public clsDoctor searchDoc(String code){
+    public clsDoctor searchDoc(int doctorId){
         
         clsDoctor doc = null;
         try{
             
-               doc =  this.modelDoctor.searchDoctor(code);
+               doc =  this.modelDoctor.searchDoctor(doctorId);
             
             return doc;
         }catch(Exception e){
@@ -184,12 +184,12 @@ public class ctlPet {
         
     }
     
-    public clsVeterinary searchVet(String name){
+    public clsVeterinary searchVet(int id){
         
         clsVeterinary vet = null;
         try{
             
-               vet =  this.modelVet.searchVet(name);
+               vet =  this.modelVet.searchVet(id);
             
             return vet;
         }catch(Exception e){
@@ -202,7 +202,7 @@ public class ctlPet {
     
     
     public LinkedList<clsDog> getDogList(String type){
-        
+        /*
         try{
             
                return modelDog.getPetlist();
@@ -211,6 +211,8 @@ public class ctlPet {
         }catch(Exception e){
             return null;
         }
+    */
+        return null;
     }
     
     public LinkedList<clsCat> getCatList(String type){

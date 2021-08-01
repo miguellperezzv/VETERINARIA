@@ -13,6 +13,21 @@ public class clsCat extends clsPet {
     
     
     private String breed;
+    int catId;
+
+    public clsCat(int catId, String breed,  String code, String name, int born_year, String color, String health_status) {
+        super(code, name, born_year, color, health_status);
+        this.breed = breed;
+        this.catId = catId;
+    }
+
+    public int getCatId() {
+        return catId;
+    }
+
+    public void setCatId(int catId) {
+        this.catId = catId;
+    }
 
     public String getBreed() {
         return breed;

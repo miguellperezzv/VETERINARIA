@@ -14,12 +14,29 @@ public class clsVeterinary extends abstHospital {
     private String phone;
     private String address;
     private clsDoctor doctor;
+    private int vetId;
+
+    public int getVetId() {
+        return vetId;
+    }
+
+    public void setVetId(int vetId) {
+        this.vetId = vetId;
+    }
 
     public clsVeterinary(String name, String phone, String address, clsDoctor doctor) {
         this.name = name;
         this.phone = phone;
         this.address = address;
         this.doctor = doctor;
+    }
+
+    public clsVeterinary(int vetId, String name, String phone, String address, clsDoctor doctor) {
+        this.name = name;
+        this.phone = phone;
+        this.address = address;
+        this.doctor = doctor;
+        this.vetId = vetId;
     }
 
     

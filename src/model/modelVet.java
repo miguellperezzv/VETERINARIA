@@ -6,7 +6,15 @@
 package model;
 
 
+import Clases.clsCat;
+import Clases.clsDoctor;
 import Clases.clsVeterinary;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.LinkedList;
 
 /**
@@ -15,6 +23,7 @@ import java.util.LinkedList;
  */
 public class modelVet {
     LinkedList<clsVeterinary> vetlist = new LinkedList<>();
+    Conexion conexion = new Conexion();
 
     public LinkedList<clsVeterinary> getVetlist() {
         return vetlist;
@@ -26,28 +35,42 @@ public class modelVet {
 
     public boolean createVet(clsVeterinary vet) {
         
-        try{
-            vetlist.add(vet);
-            return true;
-        }catch(Exception e){
-            return false;
-        }
+        try(Connection conn =  DriverManager.getConnection(conexion.getUrl(), conexion.getUser(), conexion.getPassword()) ){
+            String query  = "INSERT INTO HOSPITAL (NAME , PHONE,  ADDRESS, ID_DOCTOR) VALUES (?,?,?,?)";
+            PreparedStatement stPet =  conn.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
+            stPet.setString(1, vet.getName());
+            stPet.setString(2, vet.getPhone());
+            stPet.setString(3, vet.getAddress());
+            stPet.setInt(4, vet.getDoctor().getDoctorId());
+            
+            int rows = stPet.executeUpdate();
+            return rows>0;
+            
+    }
+       catch (SQLException e){
+           System.out.println(e);
+           return false;
+       }
     }
 
     public boolean editVet(clsVeterinary vet) {
-        try{
-           for(clsVeterinary v : vetlist){
-            if(v.getName().equals(vet.getName())){
-               
-                v.setName(vet.getName());
-                v.setAddress(vet.getAddress());
-                v.setDoctor(vet.getDoctor());
-                v.setPhone(vet.getPhone());
-                break;
-           }
-        }
-            return true;
+        try (Connection conn =  DriverManager.getConnection(conexion.getUrl(), conexion.getUser(), conexion.getPassword())){
+           String queryDoc = "UPDATE HOSPITAL SET  NAME = ?, PHONE = ?, ADDRESS=?, ID_DOCTOR = ? WHERE ID = ?";
+           PreparedStatement stPet =  conn.prepareStatement(queryDoc);
+           stPet.setString(1, vet.getName());
+           stPet.setString(2, vet.getPhone());
+           stPet.setString(3, vet.getAddress());
+           stPet.setInt(4, vet.getDoctor().getDoctorId());
+           stPet.setInt(5, vet.getVetId());
+           
+           
+           
+           int rows1 = stPet.executeUpdate();
+           
+            System.out.println("SE ACTUALIZÓ!!");
+           return rows1 > 0;
         }catch(Exception e){
+            System.out.println("ERROR "+ e);
             return false;
         }
     }
@@ -68,18 +91,27 @@ public class modelVet {
         }
     }
 
-    public clsVeterinary searchVet(String name) {
+    public clsVeterinary searchVet(int id) {
         clsVeterinary vet = null;
-        try{
-            for(clsVeterinary v : vetlist){
-           
-                if(v.getName().equals(name)){
-                    vet = v;
-                    return vet;
-                }
+        modelDoctor modelDoc = new modelDoctor();
+        try (Connection conn =  DriverManager.getConnection(conexion.getUrl(), conexion.getUser(), conexion.getPassword())){
+            String query  = "SELECT * FROM hospital  WHERE id = ?";
+            PreparedStatement stPet =  conn.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
+            stPet.setInt(1, id);
+            ResultSet result = stPet.executeQuery();
+            while(result.next()){
+                int vetId= result.getInt(1);
+                String name = result.getString(2);
+                String phone = result.getString(3);
+                String address = result.getString(4);
+                int docId = result.getInt(6);
+                clsDoctor doctor = modelDoc.searchDoctor(docId);
+                vet = new clsVeterinary(vetId, name, phone, address, doctor);
             }
+               
         }catch(Exception e){
-            return vet;
+               System.out.println("ERROR "+ e);
+            
         }
         return vet;
     }
